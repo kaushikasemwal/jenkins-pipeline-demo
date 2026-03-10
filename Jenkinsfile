@@ -46,10 +46,10 @@ pipeline {
 
     post {
         success {
-            echo "CI/CD Pipeline executed successfully 🎉"
+            echo "CI/CD Pipeline executed successfully "
         }
         failure {
-            echo "Pipeline failed ❌"
+            echo "Pipeline failed"
         }
         always {
             echo "Execution completed."
