@@ -30,5 +30,32 @@ pipeline {
             }
         }
 
+        stage('Job1') {
+            steps {
+                echo "Creating JOB_1 directory"
+                bat 'mkdir JOB_1'
+            }
+        }
+
+        stage('Job2') {
+            steps {
+                echo "Creating JOB_2 directory inside JOB_1"
+                bat 'mkdir JOB_1\\JOB_2'
+            }
+        }
+
+        stage('Job3') {
+            steps {
+                echo "Creating JOB_3 directory inside JOB_2"
+                bat 'mkdir JOB_1\\JOB_2\\JOB_3'
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Pipeline executed successfully!'
+        }
     }
 }
