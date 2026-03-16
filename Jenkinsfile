@@ -5,7 +5,7 @@ pipeline {
 
         stage('Pull from Git') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/jenkins-pipeline-demo.git'
+                git 'https://github.com/kaushikasemwal/jenkins-pipeline-demo.git
             }
         }
 
