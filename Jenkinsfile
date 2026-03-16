@@ -11,43 +11,43 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Building project"
-                bat 'mkdir build'
+                echo "Building project..."
+                bat 'if not exist build mkdir build'
             }
         }
 
         stage('Test') {
             steps {
-                echo "Running tests"
+                echo "Running tests..."
                 bat 'echo Tests passed'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying project"
-                bat 'mkdir deploy'
+                echo "Deploying application..."
+                bat 'if not exist deploy mkdir deploy'
             }
         }
 
         stage('Job1') {
             steps {
                 echo "Creating JOB_1 directory"
-                bat 'mkdir JOB_1'
+                bat 'if not exist JOB_1 mkdir JOB_1'
             }
         }
 
         stage('Job2') {
             steps {
-                echo "Creating JOB_2 directory inside JOB_1"
-                bat 'mkdir JOB_1\\JOB_2'
+                echo "Creating JOB_2 inside JOB_1"
+                bat 'if not exist JOB_1\\JOB_2 mkdir JOB_1\\JOB_2'
             }
         }
 
         stage('Job3') {
             steps {
-                echo "Creating JOB_3 directory inside JOB_2"
-                bat 'mkdir JOB_1\\JOB_2\\JOB_3'
+                echo "Creating JOB_3 inside JOB_2"
+                bat 'if not exist JOB_1\\JOB_2\\JOB_3 mkdir JOB_1\\JOB_2\\JOB_3'
             }
         }
 
@@ -56,6 +56,9 @@ pipeline {
     post {
         success {
             echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
