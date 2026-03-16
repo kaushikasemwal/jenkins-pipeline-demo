@@ -5,30 +5,28 @@ pipeline {
 
         stage('Pull from Git') {
             steps {
-                git 'https://github.com/kaushikasemwal/jenkins-pipeline-demo.git
+                git 'https://github.com/kaushikasemwal/jenkins-pipeline-demo.git'
             }
         }
 
         stage('Build') {
             steps {
-                echo "Building the project..."
+                echo "Building project..."
                 sh 'mkdir build'
-                sh 'echo Build successful'
             }
         }
 
         stage('Test') {
             steps {
                 echo "Running tests..."
-                sh 'echo Tests passed'
+                sh 'echo Tests successful'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying application..."
+                echo "Deploying project..."
                 sh 'mkdir deploy'
-                sh 'echo Deployment complete'
             }
         }
 
